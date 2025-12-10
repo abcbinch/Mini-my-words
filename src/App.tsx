@@ -1,6 +1,7 @@
 import React from "react";
+import create from "zustand";
 import MainHome from "./components/mainHome";
-import wordList from "./components/wordList";
+import type wordList from "./components/wordList";
 import wordModal from "./components/wordModal";
 
 function App() {
