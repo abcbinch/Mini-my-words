@@ -1,0 +1,29 @@
+import/export가 없는 js, ts, tsx 파일이 있으면 오류가 난다.
+오류 구문:
+TS1208: 'wordList.tsx' cannot be compiled under '--isolatedModules' 
+because it is considered a global script file. 
+Add an import, export, or an empty 'export {}' statement to make it a module.
+
+Link는 중괄호로 감싸서 삽입.
+import { Link } from "react-router-dom";
+
+Link는 Router컴포넌트 안에 존재해야 한다.
+오류 구문:
+Uncaught TypeError: Cannot destructure property 'basename' of 'react__WEBPACK_IMPORTED_MODULE_0__.useContext(...)'
+ as it is null.
++
+BrowserRoute 안에서, 
+<Routes>와 <Route>를 맨 위에 배정한다.
+그리고 그 아래에 <div>를 넣는다.
+div의 위치는 BrowserRoute 내부, Routes 아래.
+
+<BrowserRouter>
+ <MainHome></MainHome>
+</BrowserRouter>
+=>Link는 BrowserRouter 안에서만 써야 한다.
+=>그러나 꼭 BrowserRouter가 Link와 같은 컴포넌트 안에 있어야 할 필요는 없다.
+
+메인 페이지 위에 단어장 컴포넌트가 같이 뜬다.
+별도의 페이지로 이동 시키고 싶은 건데.
+=> App 컴포넌트에 아무것도 입력하지 말고, 라우터만 작성해야 한다.
+=> App 컴포넌트에 뭔가를 작성하면, 어딜 가도 App 컴포넌트 내에 있는 내용이 함께 나온다.
